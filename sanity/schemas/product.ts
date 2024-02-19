@@ -15,6 +15,12 @@ export default {
             of:[{type: 'image'}]
         },
         {
+            name: 'sizes',
+            type: 'array',
+            title: 'Product Size',
+            of:[{type: 'string'}]
+        },
+        {
             name: 'description',
             type: 'text',
             title: 'Description of product'

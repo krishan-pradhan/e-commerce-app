@@ -48,6 +48,7 @@ const ShoppingCartModal = () => {
                         <p className=" line-clamp-2">{entry.description}</p>
                         <p>Id: {entry.id}</p></div>
                         <p>QTY: {entry.quantity}</p>
+                        <p>Size: {entry.size}</p>
                         <button onClick={()=> removeItem(entry.id)}>Remove From Cart</button>
                     </li>
                   ))}

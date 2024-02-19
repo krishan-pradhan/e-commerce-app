@@ -40,7 +40,6 @@ const AllProduct = async () => {
                 ) )
             }
         </div>
-        <Link href={'./products'}>View All</Link>
     </section>
   )
 }

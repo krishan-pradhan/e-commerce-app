@@ -15,7 +15,8 @@ async function getData(slug: string) {
       description,
       "slug": slug.current,
       "categoryName": category->name,
-      price_id
+      price_id,
+      sizes
   }
   `;
   const data: fullProduct = await client.fetch(query);
@@ -25,6 +26,7 @@ async function getData(slug: string) {
 const ProductPage = async ({params, searchParams}: {params: {slug: string}; searchParams?: { [key: string]: string | string[] | undefined }}) => {
   const product = await getData(params.slug);
   let quantity =  Number(searchParams?.quantity);
+  let size = searchParams?.size;
   return (
     <>
       <section>
@@ -36,12 +38,12 @@ const ProductPage = async ({params, searchParams}: {params: {slug: string}; sear
             <div className=" sticky top-3 left-0 flex flex-col gap-3">
               <div>{product?.name}</div>
               <div>{product?.price}</div>
-              <ProductQuantity />
-              <div>Quantity: {quantity}</div>
+              <ProductQuantity sizes={product?.sizes}/>
               <div>{product?.description}</div>
               <div> 
                 <CheckoutNow currency="USD"
-                  quantity={quantity} 
+                  quantity={quantity}
+                  size= {size} 
                   description={ product.description} 
                   price={product.price} 
                   price_id={product.price_id} 
@@ -49,7 +51,8 @@ const ProductPage = async ({params, searchParams}: {params: {slug: string}; sear
                   image={product.images[0]} 
                 />
                 <AddToCart currency="USD"
-                  quantity={ quantity} 
+                  quantity={ quantity}
+                  size= {size} 
                   description={ product.description} 
                   price={product.price} 
                   price_id={product.price_id} 

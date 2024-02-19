@@ -26,10 +26,10 @@ const NavBar = () => {
               ) 
               )}
           </ul>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3">
             <ModeToggle/>
-            <Link href={'/search'}><Search color="#ffffff95"/></Link>
-            <Button variant={"secondary"} color={"black"} onClick={()=>{handleCartClick()}} ><ShoppingBag/></Button>
+            <Link href={'/search'}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
+            <Button variant={"ghost"} color={"black"} onClick={()=>{handleCartClick()}} ><ShoppingBag size={"18px"}/></Button>
           </div>
         </div>
     </nav>

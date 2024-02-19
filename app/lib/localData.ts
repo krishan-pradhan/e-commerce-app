@@ -5,10 +5,10 @@ const mainNavLink: {name: string, href: string}[] = [
     {name: "Kids", href: "/kids"}
 ]
 const collectionLink: {collectionName: string, href: string}[] = [
-    {collectionName:"All Products",href:"/"},
-    {collectionName:"Mens",href:"/"},
-    {collectionName:"Women",href:"/"},
-    {collectionName:"Kids",href:"/"} 
+    {collectionName:"All Products",href:"/products"},
+    {collectionName:"Mens",href:"/men"},
+    {collectionName:"Women",href:"/women"},
+    {collectionName:"Kids",href:"/kids"} 
 ]
 
 export {mainNavLink, collectionLink} 

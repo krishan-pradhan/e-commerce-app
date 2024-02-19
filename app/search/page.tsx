@@ -70,7 +70,6 @@ const SearchPage = async ({searchParams}: {searchParams?: { [key: string]: strin
                   ))
               }
           </div>
-          <Link href={'./products'}>View All</Link>
         </div>
         }
     </section>

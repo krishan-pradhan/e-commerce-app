@@ -10,10 +10,11 @@ export type ProductCart ={
   currency: string,
   image: any,
   price_id: string,
-  quantity: number
+  quantity: number,
+  size: any
 }
 
-const AddToCart = ({currency, description, image,  name, price, price_id, quantity}:ProductCart) => {
+const AddToCart = ({currency, description, image,  name, price, price_id, quantity, size}:ProductCart) => {
     const {addItem, handleCartClick} = useShoppingCart();
     const product ={
       name: name,
@@ -22,7 +23,8 @@ const AddToCart = ({currency, description, image,  name, price, price_id, quanti
       currency: currency,
       image: urlFor(image).url(),
       price_id: price_id,
-      quantity: quantity
+      quantity: quantity,
+      size: size
     }
   return (
     <Button onClick={() => {addItem(product, {count: quantity}), handleCartClick()}} variant={"outline"}>Add To Cart</Button>

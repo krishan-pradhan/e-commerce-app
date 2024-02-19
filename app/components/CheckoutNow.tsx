@@ -6,7 +6,7 @@ import { urlFor } from "../lib/sanity";
 import {ProductCart} from "./AddToCart"
 
 
-const CheckoutNow = ({currency, description, image,  name, price, price_id, quantity}:ProductCart) => {
+const CheckoutNow = ({currency, description, image,  name, price, price_id, quantity, size}:ProductCart) => {
     const { checkoutSingleItem } = useShoppingCart();
     function buyNow(price_id: string){
         checkoutSingleItem(price_id)
@@ -18,7 +18,8 @@ const CheckoutNow = ({currency, description, image,  name, price, price_id, quan
       currency: currency,
       image: urlFor(image).url(),
       price_id: price_id,
-      quantity: quantity
+      quantity: quantity,
+      size: size
     }
   return (
     <Button onClick={() => buyNow(product.price_id)}>Checkout Now</Button>

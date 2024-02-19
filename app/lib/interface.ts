@@ -18,4 +18,5 @@ export type fullProduct = {
     price_id: string,
     quantity: number | any
     imageUrl: string;
+    sizes: string[];
 }
