@@ -1,14 +1,18 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { Search, ShoppingBag } from "lucide-react";
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { mainNavLink } from "../lib/localData";
 import { useShoppingCart } from "use-shopping-cart";
 import { ModeToggle } from "./ThemeToggle";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const NavBar = () => {
+    const {data: session } = useSession()
     const pathName = usePathname();
     const {handleCartClick} = useShoppingCart();
+
   return (
     <>
     <nav className=" p-4">
@@ -30,6 +34,8 @@ const NavBar = () => {
             <ModeToggle/>
             <Link href={'/search'}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
             <Button variant={"ghost"} color={"black"} onClick={()=>{handleCartClick()}} ><ShoppingBag size={"18px"}/></Button>
+            {session? <p className=" text-sm">{session?.user?.name}</p>: '' } 
+            <Button variant={session ? "destructive" : 'outline'}  onClick={session ? ()=> {signOut()} : ()=> {signIn()}}>{session ? 'Log out' : 'Log in'}</Button>
           </div>
         </div>
     </nav>
