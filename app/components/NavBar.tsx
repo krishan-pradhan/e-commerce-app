@@ -33,7 +33,7 @@ const NavBar = () => {
           <div className="flex items-center gap-3">
             <ModeToggle/>
             <Link href={'/search'}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
-            <Button variant={"ghost"} color={"black"} onClick={()=>{handleCartClick()}} ><ShoppingBag size={"18px"}/></Button>
+            <Button variant={"ghost"} color={"black"} onClick={()=>{session? handleCartClick(): signIn()} }><ShoppingBag size={"18px"}/></Button>
             {session? <p className=" text-sm">{session?.user?.name}</p>: '' } 
             <Button variant={session ? "destructive" : 'outline'}  onClick={session ? ()=> {signOut()} : ()=> {signIn()}}>{session ? 'Log out' : 'Log in'}</Button>
           </div>

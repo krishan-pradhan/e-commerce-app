@@ -3,8 +3,9 @@ import { fullProduct} from "../lib/interface";
 import { client } from "../lib/sanity"
 
 import ProductCard from "../components/ProductCard";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 async function getData(category: string) {
-  
     const query = `*[_type == 'product' && category->name == "${category}"]{
         price,
         name,
@@ -18,10 +19,14 @@ async function getData(category: string) {
     return data;  
 }
 
-const CategoryPage = async ({params}: { params: {category: string} }) => {
+const CategoryPage = async ({params}: { params: {category: string} }) => {    
   let parameter = params.category;
   const data: fullProduct[] = await getData(parameter[0].toUpperCase() + parameter.slice(1));
-  
+
+  const session = await getServerSession();
+  if (!session || !session.user) { 
+    redirect('/') 
+  }
   return (
     <section className="container">
         <h2>collection</h2>
