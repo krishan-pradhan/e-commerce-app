@@ -15,7 +15,7 @@ const NavBar = () => {
 
   return (
     <>
-    <nav className=" p-4">
+    <nav className=" p-4 sticky ">
         <div className="container mx-auto flex justify-between md:items-center item-start md:flex-row flex-col">
           <Link href="/">
             <span className=" text-lg font-bold">MyWebsite</span>
@@ -24,7 +24,7 @@ const NavBar = () => {
               {mainNavLink.map((link, i) =>(
                   <li className="{}" key={i}>
                   <Link href={link.href}>
-                    <span className={` hover:text-gray-300 ${pathName === link.href ? " text-gray-600": ''}`}>{link.name}</span>
+                    <span className={` hover:opacity-70 ${pathName === link.href ? " opacity-70": ' hover:underline'}`}>{link.name}</span>
                   </Link>
                 </li>
               ) 

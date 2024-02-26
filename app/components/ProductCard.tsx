@@ -11,7 +11,7 @@ const ProductCard = ({product}: {product: fullProduct}) => {
         <div>
             <div className=" bg-white shadow-lg rounded-lg overflow-hidden">
                 <Link href={`/products/${product.slug}`}>
-                  <Image src={urlFor(imageUrl).url()} alt={name} width={300} height={300} className="w-full" ></Image>
+                  <Image src={urlFor(imageUrl).url()} alt={name} width={300} height={300} className="w-full"></Image>
                 </Link>
                 <div className="px-6 py-4">
                   <Link href={`/products/${product.slug}`}>
@@ -20,6 +20,7 @@ const ProductCard = ({product}: {product: fullProduct}) => {
                   <div className="flex items-center mt-4">
                     <span className="text-gray-700 font-semibold">${price}</span>
                     <AddToCart currency="USD"
+                      size={"M"}
                       quantity={1} 
                       description={ description} 
                       price={price} 

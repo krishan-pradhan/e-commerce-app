@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode;}>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -27,7 +27,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
             
             <CartProvider>
             <ProviderWrapper>
-            <header><NavBar/></header>
+            <header className="fixed top-0 left-0 w-full backdrop-blur-2xl z-40"><NavBar/></header>
             <ShoppingCartModal/>
             {children}
             <footer>footer</footer>
