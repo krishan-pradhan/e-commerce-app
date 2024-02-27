@@ -27,7 +27,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
             
             <CartProvider>
             <ProviderWrapper>
-            <header className="fixed top-0 left-0 w-full backdrop-blur-2xl z-40"><NavBar/></header>
+            <header id="mainHeader" className="fixed top-0 left-0 w-full backdrop-blur-2xl z-40"><NavBar/></header>
             <ShoppingCartModal/>
             {children}
             <footer>footer</footer>

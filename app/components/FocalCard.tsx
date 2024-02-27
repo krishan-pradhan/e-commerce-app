@@ -7,6 +7,7 @@ import { fullProduct } from "../lib/interface"
 import Image from "next/image";
 import { urlFor } from "../lib/sanity";  
 import Link from "next/link";
+import { Briefcase } from "lucide-react";
 
 const FocalCard = ({product}: {product: fullProduct[]}) => {
     const [firstProduct] = product;
@@ -15,7 +16,11 @@ const FocalCard = ({product}: {product: fullProduct[]}) => {
     <>
         <div className="relative">
             <HoverCard>
-            <HoverCardTrigger><div className="w-7 h-7 cursor-pointer bg-red-400 rounded-full"></div></HoverCardTrigger>
+            <HoverCardTrigger>
+                <div className="cursor-pointer relative glow-box flex justify-center items-center w-6 h-6">
+                <Briefcase size={16} />
+                </div>  
+            </HoverCardTrigger>
                 <HoverCardContent>
                 <Link href={`products/${slug}`}>
                     <div className=" flex gap-5 hover:scale-105 duration-300 ease">
