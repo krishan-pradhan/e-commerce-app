@@ -5,6 +5,7 @@ import { client } from "../lib/sanity"
 import ProductCard from "../components/ProductCard";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 async function getData(category: string) {
     const query = `*[_type == 'product' && category->name == "${category}"]{
         price,
@@ -22,16 +23,19 @@ async function getData(category: string) {
 const CategoryPage = async ({params}: { params: {category: string} }) => {    
   let parameter = params.category;
   const data: fullProduct[] = await getData(parameter[0].toUpperCase() + parameter.slice(1));
-
   const session = await getServerSession();
   if (!session || !session.user) { 
     redirect('/') 
   }
   return (
+    <>
+    <section className="lg:mb-20 mb-10 relative overflow-hidden">
+      <div className="w-full absolute top-0 left-0 h-full flex items-center pl-10 bg-gradient-to-r from-[#000000af] to-[#ffffff10]"> {parameter} </div>
+      <Image className=" min-h-[320px] max-h-[580px] w-full object-cover " src={`/images/jpg/${parameter}.jpg`} width={1920} height={600} alt="collection banner image"></Image>
+    </section>
     <section className="container">
-        <h2>collection</h2>
-
-        <div className="grid grid-cols-2 gap-5">
+        <h2 className="mb-5">collection</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-5">
             {
                 data.map((product)=> (
                     <div key={product.price_id}>
@@ -41,6 +45,7 @@ const CategoryPage = async ({params}: { params: {category: string} }) => {
             }
         </div>
     </section>
+    </>
   )
 }
 

@@ -59,7 +59,7 @@ const SearchPage = async ({searchParams}: {searchParams?: { [key: string]: strin
         {data.length === 0?
         notFound(): 
         <div>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-5">
               {
                   data.map((product)=> (
                   <div key={product.price_id}>

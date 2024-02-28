@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { fullProduct } from "../lib/interface";
 import { client } from "../lib/sanity";
 import ProductCard from "./ProductCard";
@@ -30,8 +31,8 @@ const Newest = async () => {
   return (
     <>
     <section className="container">
-        <h2>Recently added</h2>
-        <div className="grid grid-cols-2 gap-5">
+        <h2 className="my-5">Recently added</h2>
+        <div className="grid lg:grid-cols-3 grid-cols-2 gap-2 lg:gap-5">
             {
                 data.map((product)=> (
                 <div key={product.price_id}>
@@ -40,7 +41,13 @@ const Newest = async () => {
                 ) )
             }
         </div>
-        <Link href={'./products'}>View All</Link>
+        <div className="w-full flex justify-center my-5 lg:my-10">
+          <Button className="min-w-[200px]" variant={"outline"} tabIndex={-1}>
+            <Link href={'./products'}>View All</Link>
+          </Button>
+        </div>
+        
+        
     </section>
     </>
   )

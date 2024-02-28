@@ -34,7 +34,7 @@ const NavBar = () => {
               <ul className={`flex lg:space-x-4 lg:flex-row flex-col lg:w-auto w-full items-center ${menuOpen? 'menuclose': 'menuOpen'}`}>
                   {mainNavLink.map((link, i) =>(
                       <li className="{}" key={i}>
-                      <Link href={link.href}>
+                      <Link href={link.href} onClick={()=> setMenuOpen(prev => !prev)}>
                         <span className={` lg:text-base text-2xl lg:py-0 py-5 block hover:opacity-70 ${pathName === link.href ? " opacity-70": ' hover:underline'}`}>{link.name}</span>
                       </Link>
                     </li>
