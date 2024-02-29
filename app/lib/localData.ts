@@ -5,8 +5,8 @@ const mainNavLink: {name: string, href: string}[] = [
     {name: "Kids", href: "/kids"}
 ]
 const collectionLink: {collectionName: string, href: string}[] = [
-    {collectionName:"All Products",href:"/products"},
-    {collectionName:"Mens",href:"/men"},
+    {collectionName:"All",href:"/products"},
+    {collectionName:"Men",href:"/men"},
     {collectionName:"Women",href:"/women"},
     {collectionName:"Kids",href:"/kids"} 
 ]

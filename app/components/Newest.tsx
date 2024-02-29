@@ -47,7 +47,6 @@ const Newest = async () => {
           </Button>
         </div>
         
-        
     </section>
     </>
   )

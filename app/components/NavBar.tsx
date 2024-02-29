@@ -31,7 +31,7 @@ const NavBar = () => {
             </div>
           </div>
           <div className="menu-list flex lg:items-center items-start gap-5 lg:min-w-[60%] justify-between lg:flex-row flex-col ">
-              <ul className={`flex lg:space-x-4 lg:flex-row flex-col lg:w-auto w-full items-center ${menuOpen? 'menuclose': 'menuOpen'}`}>
+              <ul className={`flex lg:space-x-4 lg:flex-row flex-col lg:w-auto w-full items-center ${menuOpen? 'menuOpen': 'menuclose'}`}>
                   {mainNavLink.map((link, i) =>(
                       <li className="{}" key={i}>
                       <Link href={link.href} onClick={()=> setMenuOpen(prev => !prev)}>
@@ -41,7 +41,7 @@ const NavBar = () => {
                   ) 
                   )}
               </ul>
-              <div className={`flex items-center lg:justify-start justify-center gap-2 lg:w-auto w-full ${menuOpen? 'menuclose': 'menuOpen'}`}>
+              <div className={`flex items-center lg:justify-start justify-center gap-2 lg:w-auto w-full ${menuOpen? 'menuOpen': 'menuclose'}`}>
                 <Link href={'/search'}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
                 <Button variant={"ghost"} color={"black"} onClick={()=>{session? handleCartClick(): signIn()} }><ShoppingBag size={"18px"}/></Button>
                 {session? <p className=" text-sm lg:block hidden">{session?.user?.name}</p>: '' } 

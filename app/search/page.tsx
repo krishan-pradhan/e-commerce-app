@@ -54,7 +54,7 @@ const SearchPage = async ({searchParams}: {searchParams?: { [key: string]: strin
   const queryData = searchParams?.q
   const data: fullProduct[] = await getData(queryData);
   return (
-    <section className="container">
+    <section className="container mt-40">
         <Search/>
         {data.length === 0?
         notFound(): 

@@ -4,7 +4,7 @@ import {
     Sheet,
     SheetContent,
     SheetHeader,
-    SheetTitle,
+    SheetTitle
   } from "@/components/ui/sheet"
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
@@ -25,46 +25,57 @@ const ShoppingCartModal = () => {
   // }
   return (
     <>
-       <Sheet open={shouldDisplayCart}  onOpenChange={() => handleCartClick()} >
+      <Sheet open={shouldDisplayCart}  onOpenChange={() => handleCartClick()} >
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Are you absolutely sure?</SheetTitle>
+              <SheetTitle>Shopping Bag</SheetTitle>
             </SheetHeader>
-            <div>
-              <ul className="overflow-y-auto max-h-[600px]">
-                {cartCount === 0 ? (
-                    <h1>Cart is empty</h1>
+            <div className="h-full flex justify-between flex-col pt-6">
+              {cartCount === 0 ? (
+                <h1>Cart is empty</h1>
                 ):
                 (
                 <>
-                  {Object.values(cartDetails ?? {}).map((entry) => (
-                    <li key={entry.id} className="">
-                      <div>
-                        <Image src={entry.image as string} alt={entry.name} width={100} height={100} ></Image>
-                      </div>
-                      <div>
-                        <h3>{entry.name}</h3>
-                        <p>{entry.price}</p>
-                        <p className=" line-clamp-2">{entry.description}</p>
-                        <p>Id: {entry.id}</p></div>
-                        <p>QTY: {entry.quantity}</p>
-                        <p>Size: {entry.size}</p>
-                        <button onClick={()=> removeItem(entry.id)}>Remove From Cart</button>
-                    </li>
-                  ))}
-                </>
-                )}
-              </ul>
-            </div>
-            <div>
-              <p>Subtotal: {totalPrice}</p>
-              <div>
-                <Button onClick={()=> redirectToCheckout()} >Checkout</Button>
-                <button onClick={()=> handleCartClick()}>Continue Shopping</button>
-              </div>
-            </div>
+                  <div>
+                    <ul className="overflow-y-auto h-[480px] max-h-[500px] flex flex-col gap-5">
+                        {Object.values(cartDetails ?? {}).map((entry) => (
+                          <li key={entry.id} className=" flex gap-3 ">
+                            <div>
+                              <Image className="w-[140px] h-[120px] object-cover" src={entry.image as string} alt={entry.name} width={100} height={100} ></Image>
+                            </div>
+                            <div className="flex flex-col justify-between gap-5 w-full">
+                                <div>
+                                  <h5>{entry.name}</h5>
+                                  <p className="text-sm opacity-75">Size: {entry.quantity} | Qty: {entry.size}</p>
+                                </div>  
+                                <div className="flex justify-between items-center gap-3">
+                                  <p>${entry.price}</p>
+                                  <p className="hidden line-clamp-2 text-sm opacity-75">{entry.description}</p>
+                                  <button className="underline" type="button" onClick={()=> removeItem(entry.id)}>Remove</button>
+                                </div>
+                            </div>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+
+                  <div className="h-full border-t border-t-gray-500 flex flex-col justify-center gap-5">
+                    <div className="flex justify-between gap-5 flex-wrap">
+                      <h5>Subtotal: <span className="text-xs opacity-75">{cartCount} Items</span></h5>
+                      <p>${totalPrice}</p>
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <Button onClick={()=> redirectToCheckout()} >Checkout</Button>
+                      <span>or</span>
+                      <button onClick={()=> handleCartClick()}>Continue Shopping</button>
+                    </div>
+                    <p className="text-sm">Shipping & Taxes Calculated at Checkout</p>
+                  </div>
+              </>
+              )}
+            </div>  
           </SheetContent>
-        </Sheet>
+      </Sheet>
     </>
   )
 }

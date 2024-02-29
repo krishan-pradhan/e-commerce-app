@@ -22,7 +22,7 @@ const CheckoutNow = ({currency, description, image,  name, price, price_id, quan
       size: size
     }
   return (
-    <Button onClick={() => buyNow(product.price_id)}>Checkout Now</Button>
+    <Button className="h-9 rounded-md px-3 lg:h-10 lg:px-4 lg:py-2 sm:text-base text-xs" onClick={() => buyNow(product.price_id)}>Checkout Now</Button>
   )
 }
 
