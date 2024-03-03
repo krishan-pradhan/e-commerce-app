@@ -24,7 +24,7 @@ async function getData() {
         console.log(error)
       }
 }
-
+export const dynamic = 'force-dynamic'
 const AllProduct = async () => {
   
   const data: fullProduct[] = await getData();

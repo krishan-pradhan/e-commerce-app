@@ -1,4 +1,4 @@
-"use server"
+
 import AddToCart from "@/app/components/AddToCart";
 import CheckoutNow from "@/app/components/CheckoutNow";
 import ImageGallery from "@/app/components/ImageGallery";
@@ -27,6 +27,7 @@ async function getData(slug: string) {
   const data: fullProduct = await client.fetch(query);
   return data;
 }
+export const dynamic = 'force-dynamic'
 
 const ProductPage = async ({params, searchParams}: {params: {slug: string}; searchParams?: { [key: string]: string | string[] | undefined }}) => {
   const product = await getData(params.slug);
