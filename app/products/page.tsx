@@ -29,8 +29,8 @@ const AllProduct = async () => {
   
   const data: fullProduct[] = await getData();
   return (
-    <section className="container">
-        <h2>All Products</h2>
+    <section className="container lg:my-32 my-16">
+        <h2 className="lg:text-3xl lg:mb-5 mb-2">All Products</h2>
         <div className="grid grid-cols-2 gap-5">
             {
                 data.map((product)=> (

@@ -6,6 +6,7 @@ import CartProvider  from "./components/Provider";
 import ShoppingCartModal from "./components/ShoppingCartModal";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ProviderWrapper from "./PorviderWrapper";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
             <header id="mainHeader" className="fixed top-0 left-0 w-full backdrop-blur-2xl z-40"><NavBar/></header>
             <ShoppingCartModal/>
             {children}
-            <footer>footer</footer>
+            <footer><Footer/></footer>
             </ProviderWrapper>
             </CartProvider>
             

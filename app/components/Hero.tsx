@@ -29,7 +29,7 @@ const Hero = async () => {
   const  productTshirt = await getData('t-shirt');
   return (
     <>
-      <section className="relative">
+      <section className="relative lg:mb-20 mb-10">
         <div className="lg:block z-10 hidden absolute top-[30%] right-[20%] w-7 h-7 ">
           <FocalCard product={productJaket} />
         </div>
@@ -48,7 +48,7 @@ const Hero = async () => {
         </div>
         <div className="lg:hidden flex container z-10 absolute top-0 left-0 w-full items-end h-full hero-section bg-gradient-to-r from-[#000000af] to-[#ffffff10] text-white">
           <div className=" lg:p-10 mb-10 sm:p-5 p-2 rounded-lg flex flex-col justify-center items-start max-w-80">
-            <h1 className="text-4xl font-bold mb-3">Welcome to Our Website</h1>
+            <h1 className="lg:text-4xl font-bold mb-3">Welcome to Our Website</h1>
             <p className="text-lg mb-8">This is a cool landing page built with React and Next.js</p>
             <Button >Get Started</Button>
           </div>

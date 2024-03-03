@@ -95,5 +95,34 @@
   }  
 }
 
-
-
+h1{
+  font-weight: 700;
+}
+h2{
+  font-weight: 600;
+}
+@media screen and (max-width: 1023px) {
+  h1{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: 1.5rem;
+  }
+  h3{
+    font-size: 1.25rem;
+  }
+  h4{
+    font-size: 1.15rem;
+  }
+  h5{
+    font-size: 1rem;
+  }
+  h6{
+    font-size: 0.85rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  p, span, li, a{
+    font-size: 14px;
+  }
+}

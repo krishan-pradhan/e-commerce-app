@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
-import { Search, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, Store } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mainNavLink } from "../lib/localData";
@@ -20,7 +20,7 @@ const NavBar = () => {
     <nav id="mainNav" className={`lg:p-4 py-2 sticky ${menuOpen? "active": ""}`}>
         <div className="container mx-auto flex justify-between lg:items-center item-start lg:flex-row flex-col overflow-y-auto">
           <div className="flex items-center justify-between" >
-            <Link href="/" className=" text-lg font-bold">MyWebsite</Link>
+          <Link className="border p-3 rounded-full hover:opacity-75" title="store logo" href="/"><Store/></Link>
             <div className="flex justify-center items-center sm:gap-5 gap-1">
               {session? <p className=" text-xs sm:text-sm lg:hidden block">{session?.user?.name}</p>: '' }
               <Toggle className="lg:hidden block" onPressedChange={(pressed: boolean) => {
@@ -34,8 +34,8 @@ const NavBar = () => {
               <ul className={`flex lg:space-x-4 lg:flex-row flex-col lg:w-auto w-full items-center ${menuOpen? 'menuOpen': 'menuclose'}`}>
                   {mainNavLink.map((link, i) =>(
                       <li className="{}" key={i}>
-                      <Link href={link.href} onClick={()=> setMenuOpen(prev => !prev)}>
-                        <span className={` lg:text-base text-2xl lg:py-0 py-5 block hover:opacity-70 ${pathName === link.href ? " opacity-70": ' hover:underline'}`}>{link.name}</span>
+                      <Link href={link.href} onClick={()=> setMenuOpen(menuOpen ? false : menuOpen)}>
+                        <span className={`lg:text-base text-2xl lg:py-0 py-5 block hover:opacity-70 ${pathName === link.href ? " opacity-70": 'hover:underline'}`}>{link.name}</span>
                       </Link>
                     </li>
                   ) 

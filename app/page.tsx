@@ -7,8 +7,8 @@ export default function Home() {
     <main className="">
       <>
       <Hero/>
-      <Collection/>
       <Newest/>
+      <Collection/>
       </>
     </main>
   );

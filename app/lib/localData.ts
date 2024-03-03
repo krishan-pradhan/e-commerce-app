@@ -10,5 +10,21 @@ const collectionLink: {collectionName: string, href: string}[] = [
     {collectionName:"Women",href:"/women"},
     {collectionName:"Kids",href:"/kids"} 
 ]
-
-export {mainNavLink, collectionLink} 
+const socialLinks = [
+    {
+        iconName:  'Instagram',
+        icon:  'icon-instagram.svg',
+        URL: 'https://www.instagram.com/'
+    },
+    {
+        iconName:  'Facebook',
+        icon:  'icon-facebook.svg',
+        URL: 'https://www.facebook.com/'
+    },
+    {
+        iconName:  'linkedIn',
+        icon:  'icon-linkedin.svg',
+        URL: 'https://www.linkedin.com/'
+    },
+]
+export {mainNavLink, collectionLink, socialLinks} 

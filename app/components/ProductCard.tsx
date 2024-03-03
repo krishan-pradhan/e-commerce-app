@@ -15,10 +15,10 @@ const ProductCard = ({product}: {product: fullProduct}) => {
                 </Link>
                 <div className="px-2 sm:px-3 py-2 lg:px-6 lg:py-4 md:absolute bottom-0 lg:bottom-[-62px] lg:group-hover:bottom-0 left-0 w-full duration-300 ease backdrop-blur-2xl">
                   <Link href={`/products/${product.slug}`}>
-                      <h3 className=" font-semibold text-lg">{name}</h3>
+                      <h4 className="font-semibold lg:text-xl">{name}</h4>
                   </Link>
                   <div className="flex items-center md:mt-4 mt-2 justify-between flex-wrap gap-2 ">
-                    <h5 className=" font-semibold">${price}</h5>
+                    <h5 className="lg:text-lg">${price}</h5>
                     <AddToCart currency="USD"
                       size={"M"}
                       quantity={1} 

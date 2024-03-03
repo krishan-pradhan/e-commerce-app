@@ -28,7 +28,7 @@ const FocalCard = ({product}: {product: fullProduct[]}) => {
                         <Image src={urlFor(imageUrl).url()} alt={name} width={120} height={120} className="rounded-full w-10 h-10 object-cover"></Image>
                         </div>
                         <div className="">
-                            <h6 className="mb-2 hover:underline">{name}</h6>
+                            <h6 className="mb-2 hover:underline lg:text-base">{name}</h6>
                             <div className=" flex justify-between gap-2">${price}  </div>
                             <div></div>
                         </div>

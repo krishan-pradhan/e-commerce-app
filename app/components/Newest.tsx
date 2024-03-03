@@ -31,7 +31,7 @@ const Newest = async () => {
   return (
     <>
     <section className="container">
-        <h2 className="my-5">Recently added</h2>
+        <h2 className="lg:my-5 my-2 lg:text-3xl">Recently added</h2>
         <div className="grid lg:grid-cols-3 grid-cols-2 gap-2 lg:gap-5">
             {
                 data.map((product)=> (

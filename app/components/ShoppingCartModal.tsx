@@ -32,7 +32,7 @@ const ShoppingCartModal = () => {
             </SheetHeader>
             <div className="h-full flex justify-between flex-col pt-6">
               {cartCount === 0 ? (
-                <h1>Cart is empty</h1>
+                <h1 className="lg:text-4xl">Cart is empty</h1>
                 ):
                 (
                 <>
@@ -45,7 +45,7 @@ const ShoppingCartModal = () => {
                             </div>
                             <div className="flex flex-col justify-between gap-5 w-full">
                                 <div>
-                                  <h5>{entry.name}</h5>
+                                  <h5 className="lg:text-lg">{entry.name}</h5>
                                   <p className="text-sm opacity-75">Size: {entry.quantity} | Qty: {entry.size}</p>
                                 </div>  
                                 <div className="flex justify-between items-center gap-3">
@@ -59,9 +59,9 @@ const ShoppingCartModal = () => {
                     </ul>
                   </div>
 
-                  <div className="h-full border-t border-t-gray-500 flex flex-col justify-center gap-5">
+                  <div className="h-full border-t border-t-gray-500 flex flex-col justify-center lg:gap-5 gap-2 pt-1">
                     <div className="flex justify-between gap-5 flex-wrap">
-                      <h5>Subtotal: <span className="text-xs opacity-75">{cartCount} Items</span></h5>
+                      <h5 className="lg:text-lg">Subtotal: <span className="text-xs opacity-75">{cartCount} Items</span></h5>
                       <p>${totalPrice}</p>
                     </div>
                     <div className="flex gap-2 items-center">

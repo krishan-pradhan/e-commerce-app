@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import {useEffect, useState } from "react";
 
+
 interface ProductSizeProps {
   sizes: string[];
 }
@@ -19,14 +20,12 @@ const ProductQuantity: React.FC<ProductSizeProps> = ({sizes}) => {
 
   return (
     <>
-      <div className=' flex gap-2'>
+      <div className=' flex gap-2 items-center'>
         <Button variant={"outline"} disabled={quantity === 1} onClick={()=> setQuantity(prev => prev-1)}>-</Button>
-        <div>
-            {currentQ}
-        </div>
+        <p> {currentQ}</p>
         <Button variant={"outline"} onClick={()=> setQuantity(prev => prev+1)}>+</Button>
       </div>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {sizes.map((size: string, i)=> (
           <Button className={`${size == currentSize? "opacity-50 cursor-not-allowed": ""}`} 
           variant={'outline'} key={i} 
