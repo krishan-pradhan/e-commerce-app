@@ -44,7 +44,7 @@ const NavBar = () => {
                     )}
               </ul>
               </nav>
-              <div className={`flex items-center lg:justify-start justify-center gap-2 lg:w-auto w-full ${menuOpen? 'menuOpen': 'menuclose'}`}>
+              <div className={`flex items-center lg:justify-start justify-center gap-2 lg:w-auto w-full lg:mb-0 mb-3 ${menuOpen? 'menuOpen': 'menuclose'}`}>
                 <Link href={'/search'} onClick={()=> setMenuOpen(menuOpen ? false : menuOpen)}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
                 <Button variant={"ghost"} color={"black"} onClick={()=>{session? handleCartClick(): signIn()} }><ShoppingBag size={"18px"}/></Button>
                 {session? <p className=" text-sm lg:block hidden">{session?.user?.name}</p>: '' } 
