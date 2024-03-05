@@ -87,12 +87,24 @@
   }
 }
 @media screen and (max-width: 1023px){
-  #mainNav .menu-list{
+  .mainHeader .menu-list{
     display: none;
   }
-  #mainNav.active .menu-list{
-    display: block;
-  }  
+  .mainHeader.active{
+    height: 100%;
+  }
+  .mainHeader.active .inner-header{
+    height: 100%;
+  }
+  .mainHeader.active .header-wrapper{
+    height: 100%;
+  }
+  .mainHeader.active .menu-list{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+  }
 }
 
 h1{
