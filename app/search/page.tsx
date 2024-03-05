@@ -48,7 +48,7 @@ async function getData(queryData: string | string[] | undefined) {
     }
     }
 }
-
+export const dynamic = 'force-dynamic';
 const SearchPage = async ({searchParams}: {searchParams?: { [key: string]: string | string[] | undefined }}) => {
   const queryData = searchParams?.q
   const data: fullProduct[] = await getData(queryData);

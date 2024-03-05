@@ -25,7 +25,7 @@ async function getData() {
       console.log(error)
     }
 }
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic'; // This makes sure the component is re-render
 const Newest = async () => {
   const data: fullProduct[] = await getData();
   return (
