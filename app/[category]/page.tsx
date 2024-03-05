@@ -1,4 +1,3 @@
-
 import { fullProduct} from "../lib/interface";
 import { client } from "../lib/sanity"
 
@@ -32,7 +31,9 @@ const CategoryPage = async ({params}: { params: {category: string} }) => {
     <>
     <section className="lg:mb-20 mb-10 relative overflow-hidden">
       <div className="w-full absolute top-0 left-0 h-full flex items-center pl-10 bg-gradient-to-r from-[#000000af] to-[#ffffff10] text-white"> <h1 className="lg:text-4xl">{parameter}</h1> </div>
-      <Image className=" min-h-[320px] max-h-[580px] w-full object-cover " src={`/images/jpg/${parameter}.jpg`} width={1920} height={600} alt="collection banner image"></Image>
+    
+        <Image className=" min-h-[320px] max-h-[580px] w-full object-cover" loading="lazy" src={`/images/jpg/${parameter}.jpg`} width={1920} height={600} alt="collection banner image"></Image>
+        
     </section>
     <section className="container lg:mb-20 mb-10">
         <h2 className="lg:mb-5 mb-2 lg:text-3xl">collection</h2>  

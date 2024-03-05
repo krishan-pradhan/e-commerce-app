@@ -14,7 +14,7 @@ const ImageGallery = ({images}:imageProps) => {
     <div className="grid sm:grid-cols-12 md:gap-3 gap-2">
       <div className="flex sm:flex-col flex-row overflow-x-auto gap-2 sm:col-span-2 sm:order-1 order-2">
           {images.map( (image: any, id: any)=> (
-              <div className="sm:min-w-full min-w-20" key={id}>
+              <div className="sm:w-full w-20" key={id}>
                   <Image onClick={()=> setCurrentImage(image)} 
                   className={`w-full object-cover sm:h-auto h-20 relative`} 
                   src={urlFor(image).url()} width={320} height={100} alt="image"/>

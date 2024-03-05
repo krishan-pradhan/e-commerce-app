@@ -3,7 +3,6 @@ import { client } from "../lib/sanity";
 import ProductCard from "../components/ProductCard";
 import Link from "next/link";
 import Search from "../components/Search";
-import { Suspense } from "react";
 import { notFound } from 'next/navigation';
 async function getData(queryData: string | string[] | undefined) {
     
@@ -63,9 +62,7 @@ const SearchPage = async ({searchParams}: {searchParams?: { [key: string]: strin
               {
                   data.map((product)=> (
                   <div key={product.price_id}>
-                    <Suspense fallback={<p>loading...?</p>}>
                       <ProductCard product={product}/>
-                    </Suspense>
                   </div>
                   ))
               }

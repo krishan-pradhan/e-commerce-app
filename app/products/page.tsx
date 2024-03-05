@@ -31,13 +31,13 @@ const AllProduct = async () => {
   return (
     <section className="container lg:my-32 my-16">
         <h2 className="lg:text-3xl lg:mb-5 mb-2">All Products</h2>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 lg:gap-5 xs:gap-3 gap-2">
             {
                 data.map((product)=> (
                 <div key={product.price_id}>
                   <ProductCard product={product}/>
                 </div>
-                ) )
+                ))
             }
         </div>
     </section>
