@@ -6,6 +6,7 @@ import {
     SheetHeader,
     SheetTitle
   } from "@/components/ui/sheet"
+import { Undo2 } from "lucide-react";
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
   
@@ -64,10 +65,13 @@ const ShoppingCartModal = () => {
                       <h5 className="lg:text-lg">Subtotal: <span className="text-xs opacity-75">{cartCount} Items</span></h5>
                       <p>${totalPrice}</p>
                     </div>
-                    <div className="flex gap-2 items-center">
+                    <div className="flex sm:gap-2 gap-4 items-center">
                       <Button onClick={()=> redirectToCheckout()} >Checkout</Button>
-                      <span>or</span>
-                      <button onClick={()=> handleCartClick()}>Continue Shopping</button>
+                      <span className="sm:block hidden">or</span>
+                      <button onClick={()=> handleCartClick()}> 
+                        <span className="sm:block hidden">Continue Shopping</span>
+                        <span className="sm:hidden flex items-center gap-2"><Undo2/> Back</span>
+                      </button>
                     </div>
                     <p className="text-sm">Shipping & Taxes Calculated at Checkout</p>
                   </div>

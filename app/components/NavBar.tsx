@@ -11,7 +11,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 
 const NavBar = () => {
-    const {data: session } = useSession()
+    const {data: session } = useSession();
     const pathName = usePathname();
     const {handleCartClick} = useShoppingCart();
     const [menuOpen, setMenuOpen] = useState(false); 
@@ -21,7 +21,7 @@ const NavBar = () => {
       <div id="mainNav" className={`inner-header lg:p-4 py-2 sticky ${menuOpen? "active": ""}`}>
         <div className="header-wrapper container mx-auto flex lg:justify-between justify-start lg:items-center item-start lg:flex-row flex-col overflow-y-auto">
           <div className="flex items-center justify-between">
-          <Link className="border p-3 rounded-full hover:opacity-75" title="store logo" href="/"><Store/></Link>
+          <Link className="border p-3 rounded-full hover:opacity-75" title="store logo" href="/" onClick={()=> setMenuOpen(menuOpen ? false : menuOpen)}><Store/></Link>
             <div className="flex justify-center items-center sm:gap-5 gap-1">
               {session? <p className=" text-xs sm:text-sm lg:hidden block">{session?.user?.name}</p>: '' }
               <Toggle className="lg:hidden block" onPressedChange={(pressed: boolean) => {
@@ -45,11 +45,11 @@ const NavBar = () => {
               </ul>
               </nav>
               <div className={`flex items-center lg:justify-start justify-center gap-2 lg:w-auto w-full ${menuOpen? 'menuOpen': 'menuclose'}`}>
-                <Link href={'/search'}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
+                <Link href={'/search'} onClick={()=> setMenuOpen(menuOpen ? false : menuOpen)}><Button tabIndex={-1} variant={"ghost"}><Search size={"18px"}/></Button></Link>
                 <Button variant={"ghost"} color={"black"} onClick={()=>{session? handleCartClick(): signIn()} }><ShoppingBag size={"18px"}/></Button>
                 {session? <p className=" text-sm lg:block hidden">{session?.user?.name}</p>: '' } 
                 <Button variant={session ? "destructive" : 'outline'}  onClick={session ? ()=> {signOut()} : ()=> {signIn()}}>{session ? 'Log out' : 'Log in'}</Button>
-                <ModeToggle/>
+                <ModeToggle/> 
               </div>
           </div>
         </div>
