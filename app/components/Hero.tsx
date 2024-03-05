@@ -25,13 +25,13 @@ async function getData(uniqueProduct: string) {
 }
 const Hero = async () => {
   const backgroundImage: any = await bannerImage();
-  const productJaket = await getData('jaket');
+  const productBag = await getData('hand-bag');
   const  productTshirt = await getData('t-shirt');
   return (
     <>
       <section className="relative lg:mb-20 mb-10">
         <div className="lg:block z-10 hidden absolute top-[30%] right-[20%] w-7 h-7 ">
-          <FocalCard product={productJaket} />
+          <FocalCard product={productBag} />
         </div>
         <div className="lg:block z-10 hidden absolute bottom-[30%] left-[20%] w-7 h-7 ">
           <FocalCard product={productTshirt} />
