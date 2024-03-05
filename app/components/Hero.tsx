@@ -50,7 +50,6 @@ const Hero = async () => {
           <div className=" lg:p-10 mb-10 sm:p-5 p-2 rounded-lg flex flex-col justify-center items-start max-w-80">
             <h1 className="lg:text-4xl font-bold mb-3">Welcome to Our Website</h1>
             <p className="text-lg mb-8">This is a cool landing page built with React and Next.js</p>
-            <Button >Get Started</Button>
           </div>
         </div>
       </section>
